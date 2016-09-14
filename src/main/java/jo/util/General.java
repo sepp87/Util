@@ -53,6 +53,22 @@ public class General {
     }
 
     /**
+     * @param rawValue the string to check
+     * @return a boolean when the string is a valid boolean, otherwise null.
+     */
+    public static Boolean getBooleanValue(String rawValue) {
+        Boolean newValue = null;
+
+        if (rawValue.toLowerCase().equals("true")) {
+            newValue = true;
+        } else if (rawValue.toLowerCase().equals("false")) {
+            newValue = false;
+        }
+
+        return newValue;
+    }
+
+    /**
      * Format a double property by another double property, e.g. a number likely
      * set by the user.
      *
