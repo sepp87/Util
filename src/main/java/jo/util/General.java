@@ -93,4 +93,25 @@ public class General {
         return formattedValue;
     }
 
+    /**
+     * @param value the integer value to format
+     * @param length the length of the output string
+     * @return the formatted integer value e.g. 0001
+     */
+    public static String getIntegerValueWithLeadingZeros(int value, int length) {
+
+        String newValue = value + "";
+        int numOfZeros = length - newValue.length();
+
+        if (numOfZeros < 0) {
+            throw new IndexOutOfBoundsException("Integer value " + value + " exceeds requested length of " + length + " digits");
+        }
+
+        while (newValue.length() < length) {
+            newValue = "0" + newValue;
+        }
+
+        return newValue;
+    }
+
 }
