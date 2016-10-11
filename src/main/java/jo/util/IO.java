@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 public class IO {
 
     /**
+     * @param removeQuotations removes first and last character of the values if true
      * @param file *.csv to read
      * @return a list of lists. Each list represents a line.
      */
@@ -28,22 +29,44 @@ public class IO {
     }
 
     /**
-     * @param file *.csv to read
      * @param delimiter to seperate the strings by
+     * @param removeQuotations removes first and last character of the values if true
+     * @param file *.csv to read
      * @return a list of lists. Each list represents a line.
      */
     public static List<List<String>> readDelimiterSeperatedFile(String delimiter, boolean removeQuotations, File file) {
         List<List<String>> lol = new ArrayList<>();
         List<String> list = readFile(file);
-        for (String s : list) {
-            String[] raw = s.split(delimiter);
+        int size = list.size();
+        int numOfColumns = 0;
+        boolean initialized = false;
+        for (int i = 0; i < size; i++) {
+            String line = list.get(i);
+            String[] raw = line.split(delimiter);
+            if (!initialized) {
+                numOfColumns = raw.length;
+                initialized = true;
+            }
+
+            //Safeguard for when a row takes up multiple lines
+            while (raw.length != numOfColumns) {
+                i++;
+                line += list.get(i);
+                raw = line.split(delimiter);
+            }
+
             List<String> values = new ArrayList<>();
-            for (int i = 0; i < raw.length; i++) {
-                String val = raw[i];
+            for (int j = 0; j < raw.length; j++) {
+                String val = raw[j];
+                if (removeQuotations) {
+                    val = val.substring(1, val.length() - 1);
+                }
                 values.add(val);
             }
+
             lol.add(values);
         }
+
         return lol;
     }
 
