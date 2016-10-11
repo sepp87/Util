@@ -23,11 +23,20 @@ public class IO {
      * @param file *.csv to read
      * @return a list of lists. Each list represents a line.
      */
-    public static List<List<String>> readCommaSeperatedFile(File file) {
+    public static List<List<String>> readCommaSeperatedFile(boolean removeQuotations, File file) {
+        return readDelimiterSeperatedFile(",", removeQuotations, file);
+    }
+
+    /**
+     * @param file *.csv to read
+     * @param delimiter to seperate the strings by
+     * @return a list of lists. Each list represents a line.
+     */
+    public static List<List<String>> readDelimiterSeperatedFile(String delimiter, boolean removeQuotations, File file) {
         List<List<String>> lol = new ArrayList<>();
         List<String> list = readFile(file);
         for (String s : list) {
-            String[] raw = s.split(",");
+            String[] raw = s.split(delimiter);
             List<String> values = new ArrayList<>();
             for (int i = 0; i < raw.length; i++) {
                 String val = raw[i];
@@ -99,19 +108,19 @@ public class IO {
      * @param file to write to, likely a *.csv or *.txt
      */
     public static void writeCommaSeperatedFile(List<List<String>> lists, File file) {
-        writeTokenSeperatedFile(lists, ",", file);
+        writeDelimiterSeperatedFile(lists, ",", file);
     }
 
     /**
      * @param lists list of lists containing strings to join
-     * @param token to seperate the strings by
+     * @param delimiter to seperate the strings by
      * @param file to write to, e.g. *.csv or *.txt
      */
-    public static void writeTokenSeperatedFile(List<List<String>> lists, String token, File file) {
+    public static void writeDelimiterSeperatedFile(List<List<String>> lists, String delimiter, File file) {
 
         List<String> strings = new ArrayList<>();
         for (List list : lists) {
-            strings.add(getTokenSeperatedLine(list, token));
+            strings.add(getDelimiterSeperatedLine(list, delimiter));
         }
 
         try (FileOutputStream fos = new FileOutputStream(file);
@@ -132,16 +141,16 @@ public class IO {
 
     /**
      * @param list with strings to join
-     * @param token to seperate the strings by
+     * @param delimiter to seperate the strings by
      * @return a token seperated line
      */
-    public static String getTokenSeperatedLine(List<String> list, String token) {
+    public static String getDelimiterSeperatedLine(List<String> list, String delimiter) {
         StringBuilder b = new StringBuilder();
         for (String s : list) {
             b.append(s);
-            b.append(token);
+            b.append(delimiter);
         }
-        b.deleteCharAt(b.length() - token.length());
+        b.deleteCharAt(b.length() - delimiter.length());
 
         return b.toString();
     }

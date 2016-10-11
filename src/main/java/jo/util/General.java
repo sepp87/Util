@@ -114,4 +114,23 @@ public class General {
         return newValue;
     }
 
+    /**
+     * Determine SimpleDateFormat pattern matching with the given date string.
+     * Returns null if format is unknown. You can simply extend DateUtil with
+     * more formats if needed.
+     *
+     * @param dateString The date string to determine the SimpleDateFormat
+     * pattern for.
+     * @return The matching SimpleDateFormat pattern, or null if format is
+     * unknown.
+     * @see SimpleDateFormat
+     */
+    public static String getDateFormat(String dateString) {
+        for (String regexp : Global.DATE_REGEX.keySet()) {
+            if (dateString.toLowerCase().matches(regexp)) {
+                return Global.DATE_REGEX.get(regexp);
+            }
+        }
+        return null; // Unknown format.
+    } //http://balusc.omnifaces.org/2007/09/dateutil.html
 }
