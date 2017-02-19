@@ -20,8 +20,7 @@ import java.util.logging.Logger;
 public class IO {
 
     /**
-     * @param removeQuotations removes first and last character of the values if
-     * true
+     * @param removeQuotations removes first and last character of the values if true
      * @param file *.csv to read
      * @return a list of lists. Each list represents a line.
      */
@@ -31,8 +30,7 @@ public class IO {
 
     /**
      * @param delimiter to seperate the strings by
-     * @param removeQuotations removes first and last character of the values if
-     * true
+     * @param removeQuotations removes first and last character of the values if true
      * @param file *.csv to read
      * @return a list of lists. Each list represents a line.
      */
@@ -49,11 +47,10 @@ public class IO {
                 numOfColumns = raw.length;
                 initialized = true;
             }
-          
+
             //Safeguard for when a row takes up multiple lines
             while (raw.length != numOfColumns) {
                 i++;
-                System.out.println(file.getPath());
                 line += list.get(i);
                 raw = line.split(delimiter);
             }
@@ -62,11 +59,6 @@ public class IO {
             for (int j = 0; j < raw.length; j++) {
                 String val = raw[j];
                 if (removeQuotations) {
-                    //Safeguard for when a value is not surrounded by quotations
-                    if (!val.startsWith("\"")) {
-                        removeQuotations = false;
-                    }
-
                     val = val.substring(1, val.length() - 1);
                 }
                 values.add(val);
@@ -137,23 +129,21 @@ public class IO {
      * @param lists list of lists containing strings to join. Each sub list
      * represents a line.
      * @param file to write to, likely a *.csv or *.txt
-     * @param addQuotations put values between quotations "value"
      */
-    public static void writeCommaSeperatedFile(List<List<String>> lists, File file, boolean addQuotations) {
-        writeDelimiterSeperatedFile(lists, ",", file, addQuotations);
+    public static void writeCommaSeperatedFile(List<List<String>> lists, File file) {
+        writeDelimiterSeperatedFile(lists, ",", file);
     }
 
     /**
      * @param lists list of lists containing strings to join
      * @param delimiter to seperate the strings by
      * @param file to write to, e.g. *.csv or *.txt
-     * @param addQuotations put values between quotations "value"
      */
-    public static void writeDelimiterSeperatedFile(List<List<String>> lists, String delimiter, File file, boolean addQuotations) {
+    public static void writeDelimiterSeperatedFile(List<List<String>> lists, String delimiter, File file) {
 
         List<String> strings = new ArrayList<>();
         for (List list : lists) {
-            strings.add(getDelimiterSeperatedLine(list, delimiter, addQuotations));
+            strings.add(getDelimiterSeperatedLine(list, delimiter));
         }
 
         try (FileOutputStream fos = new FileOutputStream(file);
@@ -175,21 +165,28 @@ public class IO {
     /**
      * @param list with strings to join
      * @param delimiter to seperate the strings by
-     * @param addQuotations put values between quotations "value"
      * @return a token seperated line
      */
-    public static String getDelimiterSeperatedLine(List<String> list, String delimiter, boolean addQuotations) {
+    public static String getDelimiterSeperatedLine(List<String> list, String delimiter) {
         StringBuilder b = new StringBuilder();
         for (String s : list) {
-            if (addQuotations) {
-                s = "\"" + s + "\"";
-            }
             b.append(s);
             b.append(delimiter);
         }
         b.deleteCharAt(b.length() - delimiter.length());
 
         return b.toString();
+    }
+
+    /**
+     * Get the absolute path to the directory of the .jar
+     *
+     * @param any object within the project
+     * @return the parent directory of the .jar
+     */
+    public static String getPathOfJAR(Object any) {
+        String jarPath = any.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+        return jarPath.substring(0, jarPath.lastIndexOf('/') + 1);
     }
 
     /**
@@ -210,24 +207,5 @@ public class IO {
             extension = path.substring(dot + 1);
         }
         return extension;
-    }
-
-    public static File getFile(String extension, String... path) {
-        return getFile(path, extension);
-    }
-
-    public static File getFile(String[] path, String extension) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < path.length; i++) {
-            sb.append(path[i]);
-            if (i == path.length - 1) {
-                continue;
-            }
-            sb.append(File.separatorChar);
-        }
-        if (extension != null) {
-            sb.append(".").append(extension);
-        }
-        return new File(sb.toString());
     }
 }

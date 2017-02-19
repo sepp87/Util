@@ -7,8 +7,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Level;
@@ -20,8 +18,6 @@ import java.util.logging.Logger;
  */
 public class Sys {
 
-    private static Map<String, Process> APPS;
-
     public static void startCMD() {
         try {
             Process process = Runtime.getRuntime().exec("cmd.exe /c cd C:\\ & start");
@@ -31,19 +27,16 @@ public class Sys {
         }
     }
 
-    public static void startApp(String path, boolean silent) {
-        startApp(Arrays.asList(path), silent);
-    }
+    private static Map<String, Process> APPS;
 
-    public static void startApp(List<String> commands, boolean silent) {
+    public static void startApp(String path, boolean silent) {
         if (APPS == null) {
             APPS = new TreeMap<>();
         }
 
         try {
-            ProcessBuilder processBuilder = new ProcessBuilder().command(commands);
-            Process process = processBuilder.start();
-            APPS.put(commands.get(0), process);
+            Process process = new ProcessBuilder(path).start();
+            APPS.put(path, process);
 
             if (silent) {
                 return;
