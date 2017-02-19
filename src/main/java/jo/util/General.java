@@ -126,11 +126,22 @@ public class General {
      * @see SimpleDateFormat
      */
     public static String getDateFormat(String dateString) {
-        for (String regexp : Global.DATE_REGEX.keySet()) {
+        for (String regexp : Constants.DATE_REGEX.keySet()) {
             if (dateString.toLowerCase().matches(regexp)) {
-                return Global.DATE_REGEX.get(regexp);
+                return Constants.DATE_REGEX.get(regexp);
             }
         }
         return null; // Unknown format.
     } //http://balusc.omnifaces.org/2007/09/dateutil.html
+
+    /**
+     * Get the absolute path to the directory of the .jar
+     *
+     * @param any object within the project
+     * @return the parent directory of the .jar
+     */
+    public static String getPathOfJAR(Object any) {
+        String jarPath = any.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+        return jarPath.substring(0, jarPath.lastIndexOf('/') + 1);
+    }
 }

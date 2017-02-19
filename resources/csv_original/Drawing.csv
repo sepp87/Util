@@ -1,0 +1,4 @@
+"BIM_Name";"BIM_Number-Rev";"BIM_Number-Rev-Vers";"Datum";"History";"Level";"Level of Detail";"Originator";"PDF - Drawing";"Project";"Referenced models";"Revision";"Role/domain";"Status";"Thumbnail";"Title";"Zone"
+"CLI_TPM_BU_01_ARC_60";"DRC-00002-02";"DRC-00002-02-001";"17/04/2015";"CLI_TPM_BU_01_ARC_60_02";"Ebene 1";"1:100";"think project";"CLI_TPM_BU_01_ARC_60_02.pdf";"Klinik";"-/-";"02";"Architecture";"Shared";"17-04-2015 16-24-18.jpg";"";"Gebäude"
+"CLI_TPM_AT_01_ARC_60";"DRC-00003-02";"DRC-00003-02-001";"17/04/2015";"CLI_TPM_AT_01_ARC_60_02";"Ebene 1";"1:100";"think project";"CLI_TPM_AT_01_ARC_60_02.pdf";"Klinik";"-/-";"02";"Architecture";"Published";"17-04-2015 16-23-26.jpg";"";"Atrium"
+"CLI_TPM_BU_01_ARC_60";"DRC-00001-01";"DRC-00001-01-001";"18/11/2014";"CLI_TPM_BU_01_ARC_60_01";"Ebene 1";"1:100";"think project";"CLI_TPM_BU_01_ARC_60_01.pdf";"Klinik";"-/-";"01";"Architecture";"Shared";"";"";"Gebäude"
