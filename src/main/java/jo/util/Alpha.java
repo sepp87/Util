@@ -10,8 +10,5 @@ public class Alpha {
 
     public static void main(String[] args) {
 
-        File pmc = new File("resources/csv/newcmc.csv");
-
-        List<List<String>> p = jo.util.IO.readDelimiterSeperatedFile(";", false, pmc);
     }
 }
