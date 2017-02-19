@@ -12,7 +12,7 @@ import java.util.Map;
  *
  * @author ga79voz
  */
-public class Global {
+public class Constants {
 
     public static final Map<String, String> DATE_REGEX = new HashMap<String, String>() {
         { //http://balusc.omnifaces.org/2007/09/dateutil.html
