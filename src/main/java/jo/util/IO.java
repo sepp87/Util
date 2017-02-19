@@ -55,7 +55,9 @@ public class IO {
             if (!removeQuotations) {
                 //If last column has no value after the delimiter: raw.length is 1 less and therefor wrong
                 length = line.length() - line.replaceAll(delimiter, "").length() + 1;
-                isOneShort = true;
+                if (raw.length + 1 == length) {
+                    isOneShort = true;
+                }
             } else {
                 length = raw.length;
             }
@@ -81,11 +83,11 @@ public class IO {
                 }
                 values.add(val);
             }
-            
-            if(isOneShort){
+
+            if (isOneShort) {
                 values.add("");
             }
-            
+
             lol.add(values);
         }
 
