@@ -1,0 +1,39 @@
+Type;Key;Status;Creator;DateDelivered;DateDue;DateReviewed;Domain;Zone;LOD;Revision;File
+PartialModel;CLI_ARC_ALL_400_01;ToRevise;J. Meulenkamp;2017-02-15;2017-02-15;2017-02-17;Architecture;All;400;1;CLI_ARC_ALL_400_01.ifc
+PartialModel;CLI_ARC_ALL_400_02;ToRevise;J. Meulenkamp;2017-02-22;2017-02-22;2017-02-24;Architecture;All;400;2;CLI_ARC_ALL_400_02.ifc
+PartialModel;CLI_ARC_ALL_400_03;ToRevise;J. Meulenkamp;2017-03-01;2017-03-01;2017-03-03;Architecture;All;400;3;CLI_ARC_ALL_400_03.ifc
+PartialModel;CLI_ARC_ALL_400_04;InReview;J. Meulenkamp;2017-03-08;2017-03-08;2017-03-10;Architecture;All;400;4;CLI_ARC_ALL_400_04.ifc
+PartialModel;CLI_ARC_ALL_400_05;Pending;;;2017-03-15;2017-03-17;Architecture;All;400;5;
+PartialModel;CLI_ARC_ALL_400_06;Pending;;;2017-03-22;2017-03-24;Architecture;All;400;6;
+PartialModel;CLI_ARC_ALL_400_07;Pending;;;2017-03-29;2017-03-31;Architecture;All;400;7;
+PartialModel;CLI_ARC_ALL_400_08;Pending;;;2017-05-04;2017-05-06;Architecture;All;400;8;
+PartialModel;CLI_ELE_ALL_400_01;ToRevise;G. R”mer;2017-02-22;2017-02-22;2017-02-24;Electricity;All;400;1;CLI_ELE_ALL_400_01.ifc
+PartialModel;CLI_ELE_ALL_400_02;ToRevise;G. R”mer;2017-03-01;2017-03-01;2017-03-03;Electricity;All;400;2;CLI_ELE_ALL_400_02.ifc
+PartialModel;CLI_ELE_ALL_400_03;InReview;G. R”mer;2017-03-08;2017-03-08;2017-03-10;Electricity;All;400;3;CLI_ELE_ALL_400_03.ifc
+PartialModel;CLI_ELE_ALL_400_04;Pending;;;2017-03-15;2017-03-17;Electricity;All;400;4;
+PartialModel;CLI_ELE_ALL_400_05;Pending;;;2017-03-22;2017-03-24;Electricity;All;400;5;
+PartialModel;CLI_ELE_ALL_400_06;Pending;;;2017-03-29;2017-03-31;Electricity;All;400;6;
+PartialModel;CLI_ELE_ALL_400_07;Pending;;;2017-05-04;2017-05-06;Electricity;All;400;7;
+PartialModel;CLI_HVA_ALL_400_01;ToRevise;R. Breukers;2017-02-22;2017-02-22;2017-02-24;HVAC;All;400;1;CLI_HVA_ALL_400_01.ifc
+PartialModel;CLI_HVA_ALL_400_02;ToRevise;R. Breukers;2017-03-01;2017-03-01;2017-03-03;HVAC;All;400;2;CLI_HVA_ALL_400_02.ifc
+PartialModel;CLI_HVA_ALL_400_03;InReview;R. Breukers;2017-03-08;2017-03-08;2017-03-10;HVAC;All;400;3;CLI_HVA_ALL_400_03.ifc
+PartialModel;CLI_HVA_ALL_400_04;Pending;;;2017-03-15;2017-03-17;HVAC;All;400;4;
+PartialModel;CLI_HVA_ALL_400_05;Pending;;;2017-03-22;2017-03-24;HVAC;All;400;5;
+PartialModel;CLI_HVA_ALL_400_06;Pending;;;2017-03-29;2017-03-31;HVAC;All;400;6;
+PartialModel;CLI_HVA_ALL_400_07;Pending;;;2017-05-04;2017-05-06;HVAC;All;400;7;
+PartialModel;CLI_PLU_ALL_400_01;ToRevise;M. Bloemendaal;2017-02-22;2017-02-22;2017-02-24;Plumbing;All;400;1;CLI_PLU_ALL_400_01.ifc
+PartialModel;CLI_PLU_ALL_400_02;ToRevise;M. Bloemendaal;2017-03-01;2017-03-01;2017-03-03;Plumbing;All;400;2;CLI_PLU_ALL_400_02.ifc
+PartialModel;CLI_PLU_ALL_400_03;InReview;M. Bloemendaal;2017-03-08;2017-03-08;2017-03-10;Plumbing;All;400;3;CLI_PLU_ALL_400_03.ifc
+PartialModel;CLI_PLU_ALL_400_04;Pending;;;2017-03-15;2017-03-17;Plumbing;All;400;4;
+PartialModel;CLI_PLU_ALL_400_05;Pending;;;2017-03-22;2017-03-24;Plumbing;All;400;5;
+PartialModel;CLI_PLU_ALL_400_06;Pending;;;2017-03-29;2017-03-31;Plumbing;All;400;6;
+PartialModel;CLI_PLU_ALL_400_07;Pending;;;2017-05-04;2017-05-06;Plumbing;All;400;7;
+PartialModel;CLI_STR_ALL_400_01;ToRevise;M. Dietl;2017-02-15;2017-02-15;2017-02-17;Structure;All;400;1;CLI_STR_ALL_400_01.ifc
+PartialModel;CLI_STR_ALL_400_02;ToRevise;M. Dietl;2017-02-22;2017-02-22;2017-02-24;Structure;All;400;2;CLI_STR_ALL_400_02.ifc
+PartialModel;CLI_STR_ALL_400_03;ToRevise;M. Dietl;2017-03-01;2017-03-01;2017-03-03;Structure;All;400;3;CLI_STR_ALL_400_03.ifc
+PartialModel;CLI_STR_ALL_400_04;InReview;M. Dietl;2017-03-08;2017-03-08;2017-03-10;Structure;All;400;4;CLI_STR_ALL_400_04.ifc
+PartialModel;CLI_STR_ALL_400_05;Pending;;;2017-03-15;2017-03-17;Structure;All;400;5;
+PartialModel;CLI_STR_ALL_400_06;Pending;;;2017-03-22;2017-03-24;Structure;All;400;6;
+PartialModel;CLI_STR_ALL_400_07;Pending;;;2017-03-29;2017-03-31;Structure;All;400;7;
+PartialModel;CLI_STR_ALL_400_08;Pending;;;2017-05-04;2017-05-06;Structure;All;400;8;
+PartialModel;CLI_MEP_ALL_400_01;Discontinued;M. Bloemendaal;2017-02-15;2017-02-15;2017-02-17;MEP;All;400;1;CLI_MEP_ALL_400_01.ifc

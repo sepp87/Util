@@ -49,9 +49,17 @@ public class IO {
                 numOfColumns = raw.length;
                 initialized = true;
             }
-          
+
+            int length;
+            if (!removeQuotations) {
+                //If last column has no value after the delimiter: raw.length is 1 less and therefor wrong
+                length = line.length() - line.replaceAll(delimiter, "").length() + 1;
+            } else {
+                length = raw.length;
+            }
+
             //Safeguard for when a row takes up multiple lines
-            while (raw.length != numOfColumns) {
+            while (length != numOfColumns) {
                 i++;
                 System.out.println(file.getPath());
                 line += list.get(i);
