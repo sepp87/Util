@@ -141,7 +141,17 @@ public class General {
      * @return the parent directory of the .jar
      */
     public static String getPathOfJAR(Object any) {
-        String jarPath = any.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+        return getPathOfJAR(any.getClass());
+    }
+
+    /**
+     * Get the absolute path to the directory of the .jar
+     *
+     * @param any class within the project
+     * @return the parent directory of the .jar
+     */
+    public static String getPathOfJAR(Class any) {
+        String jarPath = any.getProtectionDomain().getCodeSource().getLocation().getPath();
         return jarPath.substring(0, jarPath.lastIndexOf('/') + 1);
     }
 }

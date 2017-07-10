@@ -3,6 +3,7 @@ package jo.util;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -232,6 +233,10 @@ public class IO {
         return getFile(path, extension);
     }
 
+    public static File getDirectory(String[] path) {
+        return getFile(path, null);
+    }
+
     public static File getFile(String[] path, String extension) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < path.length; i++) {
@@ -245,5 +250,24 @@ public class IO {
             sb.append(".").append(extension);
         }
         return new File(sb.toString());
+    }
+
+    /**
+     *
+     * @param files
+     * @param regex
+     * @return always returns an array of files, even if file is not a directory
+     */
+    public static List<File> filterFilesByRegex(File[] files, String regex) {
+        List<File> list = new ArrayList<>();
+        int length = files.length;
+        for (int i = 0; i < length; i++) {
+            File file = files[i];
+            String path = file.getAbsolutePath();
+            if (path.matches(regex)) {
+                list.add(file);
+            }
+        }
+        return list;
     }
 }
