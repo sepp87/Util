@@ -2,6 +2,8 @@ package jo.util;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.DoubleProperty;
 
@@ -43,11 +45,29 @@ public class General {
     public static Integer getIntegerValue(String rawValue) {
         Integer newValue = null;
         //http://stackoverflow.com/questions/16331423/whats-the-java-regular-expression-for-an-only-integer-numbers-string
-        String regExp = "^\\d+$";
+//        String regExp = "^\\d+$";
+        String regExp = "^[\\d+]{1,10}$";
         boolean isInteger = rawValue.matches(regExp);
 
         if (isInteger) {
             newValue = Integer.parseInt(rawValue);
+        }
+        return newValue;
+    }
+
+    /**
+     * @param rawValue the string to check
+     * @return a long when the string is a valid number, otherwise null.
+     */
+    public static Long getLongValue(String rawValue) {
+        Long newValue = null;
+
+        //http://stackoverflow.com/questions/16331423/whats-the-java-regular-expression-for-an-only-integer-numbers-string
+        String regExp = "^(\\d+){1,19}$";
+        boolean isLong = rawValue.matches(regExp);
+
+        if (isLong) {
+            newValue = Long.parseLong(rawValue);
         }
         return newValue;
     }
@@ -115,26 +135,6 @@ public class General {
     }
 
     /**
-     * Determine SimpleDateFormat pattern matching with the given date string.
-     * Returns null if format is unknown. You can simply extend DateUtil with
-     * more formats if needed.
-     *
-     * @param dateString The date string to determine the SimpleDateFormat
-     * pattern for.
-     * @return The matching SimpleDateFormat pattern, or null if format is
-     * unknown.
-     * @see SimpleDateFormat
-     */
-    public static String getDateFormat(String dateString) {
-        for (String regexp : Constants.DATE_REGEX.keySet()) {
-            if (dateString.toLowerCase().matches(regexp)) {
-                return Constants.DATE_REGEX.get(regexp);
-            }
-        }
-        return null; // Unknown format.
-    } //http://balusc.omnifaces.org/2007/09/dateutil.html
-
-    /**
      * Get the absolute path to the directory of the .jar
      *
      * @param any object within the project
@@ -153,5 +153,18 @@ public class General {
     public static String getPathOfJAR(Class any) {
         String jarPath = any.getProtectionDomain().getCodeSource().getLocation().getPath();
         return jarPath.substring(0, jarPath.lastIndexOf('/') + 1);
+    }
+
+    /**
+     * Create a new dynamically typed list. <br>
+     * https://stackoverflow.com/questions/15697775/dynamic-initialization-of-arraylistanyclassobject
+     *
+     * @param <T>
+     * @param type
+     * @return
+     */
+    public static <T> List<T> getList(Class<T> type) {
+        List<T> arrayList = new ArrayList<>();
+        return arrayList;
     }
 }
